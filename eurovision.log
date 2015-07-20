@@ -1,0 +1,56 @@
+2015-07-19 22:16:49 INFO  Main:33 - number of available cores: 4
+2015-07-19 22:16:49 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@71e5314e[
+  inputCsvFilename=eurovision-2015-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2015-final.csv
+  filenameFirstSemifinal=eurovision-2015-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2015-semifinal-2.csv
+]
+2015-07-19 22:16:49 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@fe14c0c[
+  inputCsvFilename=eurovision-2016-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2016-final.csv
+  filenameFirstSemifinal=eurovision-2016-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2016-semifinal-2.csv
+]
+2015-07-19 22:16:49 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@575673ff[
+  inputCsvFilename=eurovision-2017-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2017-final.csv
+  filenameFirstSemifinal=eurovision-2017-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2017-semifinal-2.csv
+]
+2015-07-19 22:18:23 INFO  Main:33 - number of available cores: 4
+2015-07-19 22:18:24 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@332cda67[
+  inputCsvFilename=eurovision-2015-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2015-final.csv
+  filenameFirstSemifinal=eurovision-2015-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2015-semifinal-2.csv
+]
+2015-07-19 22:18:24 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@63237e83[
+  inputCsvFilename=eurovision-2016-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2016-final.csv
+  filenameFirstSemifinal=eurovision-2016-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2016-semifinal-2.csv
+]
+2015-07-19 22:18:24 INFO  EurovisionDummyImplementation:31 - ro.esolutions.curs.eurovision.SimulationConfiguration@36897f62[
+  inputCsvFilename=eurovision-2017-bets.csv
+  inputJsonFilenames=[MediaProMusic.json]
+  specialCountries=[Spain]
+  numberOfSemifinalWinners=1
+  filenameFinal=eurovision-2017-final.csv
+  filenameFirstSemifinal=eurovision-2017-semifinal-1.csv
+  filenameSecondSemifinal=eurovision-2017-semifinal-2.csv
+]
