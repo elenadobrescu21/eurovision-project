@@ -8,7 +8,7 @@ public class VotingCountry implements JuryVote, PopularVote {
 	private List<JuryMember> juriesList = new ArrayList<JuryMember>(5);
 	private List<Integer> rankings;
 	
-	public VotingCountry(String countryName, int numberOfElements){
+	public VotingCountry(String countryName){
 		this.countryName = countryName;	
 	}
 	
@@ -38,7 +38,7 @@ public class VotingCountry implements JuryVote, PopularVote {
 				for(JuryMember j : juriesList) {
 					sum = sum + j.getRankings().get(i);
 				}
-				float media = sum/juriesList.size();
+				float media = sum/5;
 				participants.get(i).setIntermediateJuryScore(media);	
 			}
 		}
@@ -46,7 +46,21 @@ public class VotingCountry implements JuryVote, PopularVote {
 		this.generatePointsArray(participants);
 		Collections.sort(participants,new Comparator<ContestEntry>() {
 			public int compare(ContestEntry c1, ContestEntry c2) {	
-				return (int)(c1.getIntermediateJuryScore()-c2.getIntermediateJuryScore());
+				double c;
+				int rez = 0;
+				double comparatie = 0.0;
+				c = c1.getIntermediateJuryScore() - c2.getIntermediateJuryScore();
+				if(c==comparatie) {
+					rez = 0;
+				}
+				if(c<comparatie) {
+					rez = -1;
+				}
+				if(c>comparatie) {
+					rez = 1;
+				}
+				return rez;
+				
 			} 	
 		});
 		for(int i=0; i<participants.size(); i++) {
@@ -63,8 +77,21 @@ public class VotingCountry implements JuryVote, PopularVote {
 		
 		Collections.sort(participants,new Comparator<ContestEntry>() {
 			public int compare(ContestEntry c1, ContestEntry c2) {	
-				return (int)(c1.getIntermediatePopularScore()-c2.getIntermediatePopularScore());
-			} 	
+				double c;
+				int rez = 0;
+				double comparatie = 0.0;
+				c = c1.getIntermediatePopularScore() - c2.getIntermediatePopularScore();
+				if(c==comparatie) {
+					rez = 0;
+				}
+				if(c<comparatie) {
+					rez = -1;
+				}
+				if(c>comparatie) {
+					rez = 1;
+				}
+				return rez;
+			}
 		});
 		
 		for(int i=0; i<participants.size(); i++) {
@@ -74,6 +101,45 @@ public class VotingCountry implements JuryVote, PopularVote {
 	
 	public void setFinalScores(List<ContestEntry> participants) {
 		
+		for(ContestEntry e :participants) {
+			float media = (e.getIntermediateJuryScore()+ e.getIntermediatePopularScore())/2;
+			e.setAverageOfJuryAndTelevoting(media);
+		}
+		Collections.sort(participants,new Comparator<ContestEntry>() {
+			public int compare(ContestEntry c1, ContestEntry c2) {	
+				double c;
+				int rez = 0;
+				double comparatie = 0.0;
+				c = c1.getAverageOfJuryAndTelevoting() - c2.getAverageOfJuryAndTelevoting();
+				if(c==comparatie) {
+					c = c1.getIntermediatePopularScore()-c2.getIntermediatePopularScore();
+					if(c < comparatie) {
+						rez = -1;
+					}
+					if(c > comparatie) {
+						rez = 1;
+					}
+					
+				}
+				if(c < comparatie) {
+					rez = -1;
+				}
+				if(c>comparatie) {
+					rez = 1;
+				}
+				return rez;
+			} 	
+		});
+		
+		Collections.reverse(participants);
+		for(int i=0; i<points.length; i++) {
+			participants.get(i).addPointsToFinalScore(points[i]);
+		}
+		
+		for(ContestEntry e:participants) {
+			e.setIntermediateJuryScoreToZero();
+			e.setIntermediatePopularScoreToZero();
+		}		
 	}
 	
 	public void setPermissionToVote(ContestEntry e) {
@@ -85,6 +151,4 @@ public class VotingCountry implements JuryVote, PopularVote {
 		}
 		
 	}
-	
-
 }

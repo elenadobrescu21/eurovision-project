@@ -71,7 +71,7 @@ public class Main {
 				pw.close();
 			}
 		}
-		return new SimulationConfiguration(inputCsvFilename, Arrays.asList("MediaProMusic.json"),
+		return new SimulationConfiguration(inputCsvFilename, "MediaProMusic.json",
 				Arrays.asList("Spain"), 1, "eurovision-" + year + "-semifinal-1.csv",
 				"eurovision-" + year + "-semifinal-2.csv", "eurovision-" + year + "-final.csv");
 	}
