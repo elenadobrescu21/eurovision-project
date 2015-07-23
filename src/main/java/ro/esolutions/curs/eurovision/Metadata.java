@@ -140,8 +140,4 @@ public class Metadata {
 	public void setAdditionalProperties(Map<String, Object> additionalProperties) {
 		this.additionalProperties = additionalProperties;
 	}
-	
-	
-
-
 }

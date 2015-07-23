@@ -54,3 +54,46 @@
   filenameFirstSemifinal=eurovision-2017-semifinal-1.csv
   filenameSecondSemifinal=eurovision-2017-semifinal-2.csv
 ]
+2015-07-23 15:26:13 INFO  Main:33 - number of available cores: 4
+2015-07-23 15:26:13 INFO  Eurovision:111 - 
+2015-07-23 15:28:45 INFO  Main:33 - number of available cores: 4
+2015-07-23 15:28:45 INFO  Eurovision:112 - 
+2015-07-23 15:28:45 INFO  Main:35 - The winner is Iceland!
+2015-07-23 15:29:53 INFO  Main:33 - number of available cores: 4
+2015-07-23 15:29:53 INFO  Eurovision:112 - 
+2015-07-23 15:29:54 INFO  Main:35 - The winner is Slovakiawith 283 points
+2015-07-23 15:30:14 INFO  Main:33 - number of available cores: 4
+2015-07-23 15:30:14 INFO  Eurovision:112 - 
+2015-07-23 15:30:15 INFO  Main:35 - The winner is Poland with 312 points
+2015-07-23 15:35:44 INFO  Main:33 - number of available cores: 4
+2015-07-23 15:35:44 INFO  Eurovision:111 - 
+2015-07-23 15:35:45 INFO  Main:35 - The winner is Spain with 151 points
+2015-07-23 16:38:41 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:38:42 INFO  Eurovision:138 - 
+2015-07-23 16:39:43 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:39:43 INFO  Eurovision:138 - 
+2015-07-23 16:39:43 INFO  Main:39 - java.util.concurrent.FutureTask@9807454
+2015-07-23 16:40:30 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:40:30 INFO  Main:38 - java.util.concurrent.FutureTask@9807454
+2015-07-23 16:40:30 INFO  Eurovision:138 - 
+2015-07-23 16:44:13 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:44:13 INFO  Eurovision:138 - 
+2015-07-23 16:44:30 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:44:30 INFO  Eurovision:138 - 
+2015-07-23 16:44:30 INFO  Main:39 - java.util.concurrent.FutureTask@3d494fbf
+2015-07-23 16:49:02 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:49:02 INFO  Eurovision:138 - 
+2015-07-23 16:49:03 INFO  Main:39 - The winner is Israel with 149 points.Congrats!s
+2015-07-23 16:54:47 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:54:47 INFO  Eurovision:140 - 
+2015-07-23 16:54:48 INFO  Main:39 - The winner is Cyprus with 149 points.Congrats!
+2015-07-23 16:58:08 INFO  Main:33 - number of available cores: 4
+2015-07-23 16:58:08 INFO  Eurovision:140 - 
+2015-07-23 16:58:09 INFO  Main:39 - The winner is Serbia with 134 points.Congrats!
+2015-07-23 17:20:07 INFO  Main:33 - number of available cores: 4
+2015-07-23 17:20:07 INFO  Eurovision:140 - 
+2015-07-23 17:20:07 INFO  Main:39 - The winner is Poland with 135 points.Congrats!
+2015-07-23 17:27:28 INFO  Main:30 - number of available cores: 4
+2015-07-23 17:27:29 INFO  Main:34 - The winner is CzechRepublic with 143 points.Congrats!
+2015-07-23 18:41:03 INFO  Main:30 - number of available cores: 4
+2015-07-23 18:41:03 INFO  Main:34 - The winner is Denmark with 161 points.Congrats!

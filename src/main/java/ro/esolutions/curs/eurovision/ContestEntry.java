@@ -76,5 +76,9 @@ public class ContestEntry {
 	public void addPointsToFinalScore(int points) {
 		this.finalScore = this.finalScore + points;
 	}
+	
+	public void setFinalScoreToZero() {
+		this.finalScore = 0;
+	}
 
 }

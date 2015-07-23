@@ -25,54 +25,14 @@ public class Main {
 
 	static Logger logger = Logger.getLogger(Main.class);
 
-	public static void main(String args[]) {
-		
-		// TODO use the number of available cores to restrict the number of Threads 
-		// which are running at the same time in your simulation (see Executors... )
+	public static void main(String args[]) throws Exception {
 		int cores = Runtime.getRuntime().availableProcessors();
 		logger.info("number of available cores: " + cores);
-
-		ExecutorService executorService = Executors.newSingleThreadExecutor();
-		try {
-			
-			//TODO replace EurovisionDummyImplementation with your Eurovision class
-			
-			Future<String> winner2015 = executorService
-					.submit(new EurovisionDummyImplementation(createDummyConfiguration("Sweden", 2015)));
-			Future<String> winner2016 = executorService.submit(new EurovisionDummyImplementation(createDummyConfiguration(winner2015.get(), 2016)));
-			executorService.submit(new EurovisionDummyImplementation(createDummyConfiguration(winner2016.get(), 2017)));
-		} catch (InterruptedException | ExecutionException e) {
-			logger.error(e);
-		}
+		ExecutorService executorService = Executors.newFixedThreadPool(cores);
+		Future<String> winner2015 = executorService.submit(new Eurovision());
+		executorService.execute((Runnable) winner2015);
+		logger.info(winner2015.get());
 		executorService.shutdown();
 	}
-
-	//TODO create real configurations (more JSONs, more countries etc.)
-	static public SimulationConfiguration createDummyConfiguration(String favorite, int year) {
-		
-		//creates dummy CSV files with bet ratings (to be used as inputs for the simulation)
-		String inputCsvFilename = "eurovision-" + year + "-bets.csv";
-		PrintWriter pw = null;
-		try {
-			pw = new PrintWriter(inputCsvFilename);
-			pw.println(String.format("COUNTRY,RATING"));
-			
-			// add some dummy data
-			pw.println(String.format("%s,3", favorite));
-			pw.println(String.format("Ireland,5"));
-			pw.println(String.format("Spain,9.5"));
-			pw.println(String.format("Germany,7"));
-			pw.println(String.format("Italy,18"));
-			
-		} catch (FileNotFoundException e) {
-			logger.error(e);
-		} finally {
-			if (pw != null) {
-				pw.close();
-			}
-		}
-		return new SimulationConfiguration(inputCsvFilename, "MediaProMusic.json",
-				Arrays.asList("Spain"), 1, "eurovision-" + year + "-semifinal-1.csv",
-				"eurovision-" + year + "-semifinal-2.csv", "eurovision-" + year + "-final.csv");
-	}
 }
+

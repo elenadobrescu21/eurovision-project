@@ -21,15 +21,35 @@ public class VotingCountry implements JuryVote, PopularVote {
 		}
 	}
 	
+	public boolean getPermissionToVote() {
+		return this.permissionToVote;
+	}
+	
 	public void generatePointsArray(List<ContestEntry> participants) {
 		this.rankings = new ArrayList<Integer>(participants.size());
-		for(int i=0; i<participants.size(); i++) {
+		for(int i=1; i<=participants.size(); i++) {
 			this.rankings.add(i);
 		}
 	}
 	
-	public void getJuryVote(List<ContestEntry> participants) {
+	public void setPermissionToVote(ContestEntry e) {
+		if(this.countryName.equals(e.getCountryRating().getCountryName()) == true) {
+			this.permissionToVote = false;
+		}
+		else {
+			this.permissionToVote = true;
+		}
 		
+	}
+	
+	/**
+	 * Votul juriului
+	 * Fiecare membru al juriului va avea un clasament:va acorda un numar maxim de puncte(egal cu numarul total de participanti
+	 * din acea semifinala, respectiv finala) melodiei preferate, apoi va nota toate celelalte melodiile in ordinea preferintelor.
+	 * Pentru fiecare tara se face media punctajului obtinut de la toti membrii juriului
+	 */
+	
+	public void getJuryVote(List<ContestEntry> participants) {
 		this.createJuriesListArray(participants);
 		for(int i=0; i<participants.size(); i++) {
 			this.setPermissionToVote(participants.get(i));
@@ -41,8 +61,7 @@ public class VotingCountry implements JuryVote, PopularVote {
 				float media = sum/5;
 				participants.get(i).setIntermediateJuryScore(media);	
 			}
-		}
-		
+		}	
 		this.generatePointsArray(participants);
 		Collections.sort(participants,new Comparator<ContestEntry>() {
 			public int compare(ContestEntry c1, ContestEntry c2) {	
@@ -65,16 +84,23 @@ public class VotingCountry implements JuryVote, PopularVote {
 		});
 		for(int i=0; i<participants.size(); i++) {
 			participants.get(i).setIntermediateJuryScore(this.rankings.get(i));	
-		}
-		
+		}		
 	}
 	
-	public void getPopularVote(List<ContestEntry> participants) {
-		
-		for(ContestEntry e:participants) {
-			e.setIntermediatePopularScore(rand.nextInt(1000));
-		}
-		
+	/**
+	 * Fiecare tara primeste un anumit numar de voturi de la public
+	 * In functie de acest numar de voturi se sorteaza lista crescator
+	 * Dupa ordonare, i se atribuie fiecarei tari un anumit numar de puncte(de la 1 la numarul total de tari participante)
+	 * Tara cu cele mai putine voturi va primi 1 punct si tara cu cele mai multe voturi va primi un punctaj egal cu numarul total
+	 * de participanti din semifinala, respectiv finala
+	 */
+	public void getPopularVote(List<ContestEntry> participants) {	
+		for(int i=0; i<participants.size(); i++) {
+			this.setPermissionToVote(participants.get(i));
+			if(this.permissionToVote == true) {
+			participants.get(i).setIntermediatePopularScore(rand.nextInt(1000));
+			}
+		}		
 		Collections.sort(participants,new Comparator<ContestEntry>() {
 			public int compare(ContestEntry c1, ContestEntry c2) {	
 				double c;
@@ -99,8 +125,13 @@ public class VotingCountry implements JuryVote, PopularVote {
 		}			
 	}
 	
-	public void setFinalScores(List<ContestEntry> participants) {
-		
+	/**
+	 * Se face media finala intre votul juriului si votul publicului
+	 * 
+	 */
+	public void setFinalScores(List<ContestEntry> participants) {		
+		this.getJuryVote(participants);
+		this.getPopularVote(participants);		
 		for(ContestEntry e :participants) {
 			float media = (e.getIntermediateJuryScore()+ e.getIntermediatePopularScore())/2;
 			e.setAverageOfJuryAndTelevoting(media);
@@ -134,21 +165,10 @@ public class VotingCountry implements JuryVote, PopularVote {
 		Collections.reverse(participants);
 		for(int i=0; i<points.length; i++) {
 			participants.get(i).addPointsToFinalScore(points[i]);
-		}
-		
+		}	
 		for(ContestEntry e:participants) {
 			e.setIntermediateJuryScoreToZero();
 			e.setIntermediatePopularScoreToZero();
 		}		
-	}
-	
-	public void setPermissionToVote(ContestEntry e) {
-		if(this.countryName.equals(e.getCountryRating().getCountryName()) == true) {
-			this.permissionToVote = false;
-		}
-		else {
-			this.permissionToVote = true;
-		}
-		
-	}
+	}	
 }

@@ -15,22 +15,23 @@ public class SimulationConfiguration {
 
 	private int numberOfSemifinalWinners;
 
-	//private String filenameFinal;
+	private String filenameFinal;
 
 	private String filenameFirstSemifinal;
 
-	//private String filenameSecondSemifinal;
+	private String filenameSecondSemifinal;
 
 	public SimulationConfiguration(String inputCsvFilename, String inputJsonFilename,
-			List<String> specialCountries, int numberOfSemifinalWinners, String filenameFirstSemifinal) {
+			List<String> specialCountries, int numberOfSemifinalWinners, String filenameFirstSemifinal, String filenameSecondSemifinal,
+			String filenameFinal) {
 		super();
 		this.inputCsvFilename = inputCsvFilename;
 		this.inputJsonFilenames = inputJsonFilename;
 		this.specialCountries = specialCountries;
 		this.numberOfSemifinalWinners = numberOfSemifinalWinners;
 		this.filenameFirstSemifinal = filenameFirstSemifinal;
-		//this.filenameSecondSemifinal = filenameSecondSemifinal;
-		//this.filenameFinal = filenameFinal;
+		this.filenameSecondSemifinal = filenameSecondSemifinal;
+		this.filenameFinal = filenameFinal;
 	}
 
 	/**
@@ -44,10 +45,10 @@ public class SimulationConfiguration {
 	/**
 	 * @return CSV filename for the Final's results
 	 */
-	/*public String getFilenameFinal() {
+	public String getFilenameFinal() {
 		return filenameFinal;
 	}
-	*/
+	
 
 	/**
 	 * @return CSV filename for the First Semifinal's results
@@ -59,10 +60,11 @@ public class SimulationConfiguration {
 	/**
 	 * @return CSV filename for the Second Semifinal's results
 	 */
-	/*public String getFilenameSecondSemifinal() {
+	
+	public String getFilenameSecondSemifinal() {
 		return filenameSecondSemifinal;
 	}
-	*/
+	
 
 	/**
 	 * @return CSV filename 

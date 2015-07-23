@@ -9,9 +9,8 @@ public class JuryMember {
 	private List<Integer> rankings;
 	
 	public JuryMember(int numberOfElements) {
-		
 		this.rankings = new ArrayList<Integer>(numberOfElements);
-		for(int i=0; i<numberOfElements; i++) {
+		for(int i=1; i<=numberOfElements; i++) {
 			rankings.add(i);
 		}
 	}
